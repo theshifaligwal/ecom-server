@@ -10,6 +10,7 @@ const cors = require("cors");
 const authRoute = require("./routers/auth");
 const userRoute = require("./routers/user");
 const categoryRoute = require("./routers/category");
+const productRoute = require("./routers/product");
 
 // database connection
 const mongoose = require("mongoose");
@@ -34,6 +35,7 @@ app.use(cors());
 app.use("/api", authRoute);
 app.use("/api" , userRoute);
 app.use("/api" , categoryRoute);
+app.use("/api" , productRoute);
 
 
 // port
