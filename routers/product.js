@@ -9,7 +9,8 @@ const {
   photo,
   deleteProduct,
   updateProduct,
-  getAllProduct
+  getAllProduct,
+  getAllUniqueCategories
 } = require("../controllers/product");
 const { getUserById } = require("../controllers/user");
 
@@ -49,5 +50,7 @@ router.delete(
 
 // listing route
 router.get("/products", getAllProduct)
+
+router.get("/product/categories", getAllUniqueCategories)
 
 module.exports = router;

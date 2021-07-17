@@ -2,7 +2,6 @@ const Product = require("../models/product");
 const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
-const { S_IFDIR } = require("constants");
 
 exports.getProductById = (req, res, next, id) => {
   Product.findById(id)
@@ -151,13 +150,23 @@ exports.getAllProduct = (req, res) => {
     });
 };
 
+exports.getAllUniqueCategories = (req, res) => {
+  Product.distinct("category", {}, (err, category) => {
+    if (err) {
+      return res.status(400).json({
+        error: "No category Found",
+      });
+    }
+    res.json(category);
+  });
+};
+
 exports.updateStock = (req, res, next) => {
   let myOperations = req.body.order.product.map((prod) => {
     return {
       updateOne: {
         filter: { _id: prod._id },
-        update: { inc:
-           { stock: -prod.count, sold: +prod.count } },
+        update: { inc: { stock: -prod.count, sold: +prod.count } },
       },
     };
   });
