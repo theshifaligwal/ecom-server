@@ -6,4 +6,17 @@ const { updateStock } = require("../controllers/product")
 
 
 
-const {} = require("../controllers/order")
+const {getOrderById} = require("../controllers/order")
+
+
+// params
+router.param("userId", getUserById)
+router.param("orderId", getOrderById)
+
+
+// create
+// read
+
+// actual routes
+module.exports = router;
+

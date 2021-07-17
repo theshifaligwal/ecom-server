@@ -11,6 +11,7 @@ const authRoute = require("./routers/auth");
 const userRoute = require("./routers/user");
 const categoryRoute = require("./routers/category");
 const productRoute = require("./routers/product");
+const orderRoute = require("./routers/order");
 
 // database connection
 const mongoose = require("mongoose");
@@ -36,6 +37,8 @@ app.use("/api", authRoute);
 app.use("/api" , userRoute);
 app.use("/api" , categoryRoute);
 app.use("/api" , productRoute);
+app.use("/api" , orderRoute);
+
 
 
 // port
