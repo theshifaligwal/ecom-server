@@ -7,7 +7,8 @@ const {
   createProductById,
   getProduct,
   photo,
-  deleteProduct
+  deleteProduct,
+  updateProduct
 } = require("../controllers/product");
 const { getUserById } = require("../controllers/user");
 
@@ -37,6 +38,13 @@ router.delete(
 );
 
 // update route
+router.delete(
+  "/product/:productId/:userId",
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  updateProduct
+);
 
 // listing route
 
