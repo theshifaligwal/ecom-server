@@ -40,7 +40,7 @@ router.delete(
 );
 
 // update route
-router.delete(
+router.put(
   "/product/:productId/:userId",
   isSignedIn,
   isAuthenticated,

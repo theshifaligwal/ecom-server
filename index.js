@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser =  require("cookie-parser");
 const cors = require("cors");
+// const jwt = require('express-jwt');
 
 // my routes 
 const authRoute = require("./routers/auth");
@@ -11,6 +12,7 @@ const userRoute = require("./routers/user");
 const categoryRoute = require("./routers/category");
 const productRoute = require("./routers/product");
 const orderRoute = require("./routers/order");
+const paymentBRoute = require("./routers/paymentBRoute");
 
 // database connection
 const mongoose = require("mongoose");
@@ -37,6 +39,7 @@ app.use("/api" , userRoute);
 app.use("/api" , categoryRoute);
 app.use("/api" , productRoute);
 app.use("/api" , orderRoute);
+app.use("/api" , paymentBRoute);
 
 
 
